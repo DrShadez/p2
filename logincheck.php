@@ -31,6 +31,7 @@ try {
         if($_POST['username']==$adminuser){
           if(password_verify($_POST['pass'],$realpass)){
             header('Location:https://atdpsites.berkeley.edu/skshastri/AIC/p2/adminview.php');
+            $_SESSION["adminvalid"]="valid";
         }
         else{
           echo "wrong username or password";
@@ -43,6 +44,7 @@ try {
     elseif (isset($userinfo)){
           if(password_verify($_POST['pass'],$realpass)){
             header('Location:https://atdpsites.berkeley.edu/skshastri/AIC/p2/catalogue.php');
+            $_SESSION["valid"]="valid";
             echo "everything worked";
           }
       elseif(!password_verify($_POST['pass'],$realpass)){
