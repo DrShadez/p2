@@ -1,6 +1,6 @@
 .parallax1 {
   /* The image used */
-  background-image: url("fillerimg.png");
+  background-image: url("dingbnong.jpg");
 
   /* Set a specific height */
   min-height: 500px;
@@ -15,7 +15,7 @@
 }
 .haha{
 height:500px;
-background-color:red;
+background-color:green;
 font-size:36px;
 text-align: center;
 
@@ -33,4 +33,20 @@ text-align: center;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+
+.button {
+  text-decoration: none;
+  color: #2F3930;
+  padding: 2px 6px 2px 6px;
+  border: 1px solid #282F29;
+  background: #A8F3AF;
+}
+
+.title {
+  font-weight: 600;
+  font-family: serif;
+  font-size: 60px;
+  color: #00FF19;
 }

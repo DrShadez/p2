@@ -6,49 +6,71 @@ require 'config.php';
 
 
 try {
-    $rowid=0;
-    $isadmin=1;
-    $newpass=password_hash($_POST['passmake'],PASSWORD_DEFAULT);
-    var_dump($newpass);
-    $newusername=$_POST['usernamemake'];
-    var_dump($newusername);
+
   //dbh configuration
     $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
 
-//seperate query for getting info from player table
-    $sth1 = $dbh->prepare("SELECT * FROM user_info");
+    $newpass=password_hash($_POST['passmake'],PASSWORD_DEFAULT);
 
-    $sth1->execute();
-    $userinfo = $sth1->fetchAll();
+    $newusername=$_POST['usernamemake'];
 
-    $sth2 = $dbh->prepare("INSERT INTO user_info (id, is_admin, passhash, username) VALUES (:id,:is_admin,:passhash,:username)");
-    $sth2->bindValue(":id",$rowid);
-    $sth2->bindValue(":is_admin",$isadmin);
-    $sth2->bindValue(":passhash",$newpass);
-    $sth2->bindValue(":username",$newusername);
-    $sth2->execute();
-    $storeinfo=$sth2->fetchAll();
-    
-    if (empty($_POST['passmake'])){
-      echo "please put a password";
+
+
+
+    $sth = $dbh->prepare("SELECT * FROM user_info WHERE username=:newuser");
+    $sth->bindValue(":newuser",$newusername);
+    $sth->execute();
+    $count=$sth->fetchColumn();
+    if ($count>1){
+      echo "username already taken";
     }
+
+
+
     elseif(empty($_POST['usernamemake'])){
       echo "please put a username";
+    }
+
+    elseif (empty($_POST['passmake'])){
+      echo "please put a password";
     }
 
     elseif(empty($_POST['confirmpass'])){
       echo "please retype your password";
     }
 
-    else{
-        header('Location:https://atdpsites.berkeley.edu/skshastri/AIC/p2/catalogue.php');
+    elseif($_POST['passmake']!=$_POST['confirmpass']){
+      echo "passwords don't match";
     }
 
+    else{
+      if ($_POST['usernamemake']=='admin'){
+        $isadmin=1;
+      }
+      elseif($_POST['usernamemake']!=='admin'){
+        var_dump($_POST['usernamemake']);
+        $isadmin=0;
+      }
+
+        $sth2 = $dbh->prepare("INSERT INTO `user_info` (is_admin, passhash, username) VALUES (:is_admin,:passhash,:username)");
+        $sth2->bindValue(":is_admin",$isadmin);
+        $sth2->bindValue(":passhash",$newpass);
+        $sth2->bindValue(":username",$newusername);
+
+        $sth2->execute();
+        $storeinfo=$sth2->fetchAll();
+        header('location:catalogue.php');
+      }
 
 
 
 
 
+
+
+
+
+echo "<a href='signup.php'>back</a>";
 
 }
 catch (PDOException $e) {

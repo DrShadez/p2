@@ -7,16 +7,21 @@
 
   </head>
 
-<body>
+<body style = "margin:0">
+
 
 
 <div class="parallax1"></div>
 
-<div class='haha'>
-Are you ready to begin your journey?
 
-<a href='signin.php'>log in </a>
-<a href='signup.php'>sign up </a>
+<div class='haha'>
+<!--
+<a class = 'button' href='signin.php'>log in </a>
+<a class = 'button' href='signup.php'>sign up </a> -->
+<div class = 'title'> Welcome to BUSH LAND </div>
+
+<a class = 'button' href='signin.php'>log in </a>
+<a class = 'button' href='signup.php'>sign up </a>
 </div>
 
 <div class="parallax2"></div>
