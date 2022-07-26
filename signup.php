@@ -1,4 +1,11 @@
+<html>
+<head>
+    <link rel="stylesheet" href="p2.css">
+</head>
 <body>
+    <a href = 'home.php' class = 'button'>Home</a>
+<h1> Sign In </h1>
+
 
 <?php
 session_start();
@@ -16,13 +23,13 @@ try {
 
     echo "<form action='loginstore.php' id='home' method='post'>";
 
-echo "<input type='text' id='usernamemake' name='usernamemake' placeholder='Create username'>";
+echo "<div><input type='text' id='usernamemake' name='usernamemake' placeholder='Create username'></div>";
 
-echo "<input type='password' id='passmake' name='passmake' placeholder='Create password'>";
+echo "<div><input type='password' id='passmake' name='passmake' placeholder='Create password'></div>";
 
-echo "<input type='password' id='confirmpass' name='confirmpass' placeholder='Retype password'>";
+echo "<div><input type='password' id='confirmpass' name='confirmpass' placeholder='Retype password'></div>";
 
-echo "<input type='submit' value='signup'>";
+echo "<div><input type='submit' value='signup'></div>";
   echo "</form>";
 
 
@@ -34,5 +41,6 @@ catch (PDOException $e) {
 }
 
 ?>
-
+<p> Already have an account? Click Here: <a href = 'signin.php' class = 'button'>Sign In </a>
 </body>
+</html>
