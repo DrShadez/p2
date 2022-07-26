@@ -3,11 +3,15 @@ session_start();
 if(!isset($_SESSION["valid"])){
   header('Location:https://atdpsites.berkeley.edu/skshastri/AIC/p2/signin.php');
 }
-
-$dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
-$sth = $dbh -> prepare('SELECT * FROM `bushes`');
-$sth -> execute();
-$bush = $sth -> fetchAll();
+try {
+  $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
+  $sth = $dbh -> prepare('SELECT * FROM `bushes`');
+  $sth -> execute();
+  $bush = $sth -> fetchAll();
+}
+catch (PDOException $e){
+  echo "<p>Error: {$e->getMessage()}</p>";
+}
 
 echo "welcome to catalogue";
 echo "<a href=logout.php>logout</a>";
