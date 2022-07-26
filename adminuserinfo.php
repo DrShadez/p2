@@ -13,9 +13,13 @@ try {
   $sth = $dbh->prepare("SELECT * FROM user_info");
   $sth->execute();
   $displayinfo=$sth->fetchAll();
+  $divid=1;
   foreach($displayinfo as $info){
     echo "<br>";
+    echo "<div class='div{$divid}'>";
     echo $info['username']  . $info['is_admin'];
+    echo "</div>";
+    $divid+=1;
   };
 
 }

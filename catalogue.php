@@ -6,4 +6,13 @@ if(!isset($_SESSION["valid"])){
 echo "welcome to catalogue";
 echo "<a href=logout.php>logout</a>";
 
+
+
+echo "<form action='cart.php' id='bushoption' method='post'>";
+
+
+
+echo "<input type='submit' value='save selection'>";
+echo "</form>";
+
 ?>

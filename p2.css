@@ -1,3 +1,15 @@
+
+
+@font-face {
+  font-family: hairyBeard;
+  src: url(css/Hairy_Beard.otf);
+}
+
+body {
+  font-family: hairyBeard;
+}
+
+
 .parallax1 {
   /* The image used */
   background-image: url("dingbnong.jpg");
@@ -46,7 +58,7 @@ text-align: center;
 
 .title {
   font-weight: 600;
-  font-family: serif;
+  font-family: hairybeard;
   font-size: 60px;
   color: #00FF19;
 }
