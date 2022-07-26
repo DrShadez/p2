@@ -15,13 +15,18 @@ echo "<a href=logout.php>logout</a>";
 $donut = $bush[0]['img'];
 $spiral = $bush[1]['img'];
 $maze = $bush[2]['img'];
-$sphere = $bush[3]['img'];
+$elephant = $bush[3]['img'];
 $heart = $bush[4]['img'];
 $tall = $bush[5]['img'];
 
 
 echo "<form action='cart.php' id='bushoption' method='post'>";
-echo "<input type='radio' value='save selection'>"
+echo "<div><input type='radio' value='{$donut}'></div>";
+echo "<div><input type='radio' value='{$spiral}'></div>";
+echo "<div><input type='radio' value='{$maze}'></div>";
+echo "<div><input type='radio' value='{$spade}'></div>";
+echo "<div><input type='radio' value='{$heart}'></div>";
+echo "<div><input type='radio' value='{$tall}'></div>";
 
 
 echo "<input type='submit' value='save selection'>";
