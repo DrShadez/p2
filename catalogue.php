@@ -1,5 +1,6 @@
 <?php
 session_start();
+require 'config.php';
 if(!isset($_SESSION["valid"])){
   header('Location:https://atdpsites.berkeley.edu/skshastri/AIC/p2/signin.php');
 }
@@ -16,6 +17,7 @@ catch (PDOException $e){
 echo "welcome to catalogue";
 echo "<a href=logout.php>logout</a>";
 
+
 $donut = $bush[0]['img'];
 $spiral = $bush[1]['img'];
 $maze = $bush[2]['img'];
@@ -25,12 +27,12 @@ $tall = $bush[5]['img'];
 
 
 echo "<form action='cart.php' id='bushoption' method='post'>";
-echo "<div><input type='radio' value='{$donut}'></div>";
-echo "<div><input type='radio' value='{$spiral}'></div>";
-echo "<div><input type='radio' value='{$maze}'></div>";
-echo "<div><input type='radio' value='{$spade}'></div>";
-echo "<div><input type='radio' value='{$heart}'></div>";
-echo "<div><input type='radio' value='{$tall}'></div>";
+echo "<div><input type='radio' value='{$donut}'><img src={$donut} alt='donut' width='400' height='400'></div>";
+echo "<div><input type='radio' value='{$spiral}'><img src={$spiral} alt='spiral' width='400' height='400'></div>";
+echo "<div><input type='radio' value='{$maze}'><img src={$maze} alt='maze' width='400' height='400'></div>";
+echo "<div><input type='radio' value='{$spade}'><img src={$spade} alt='spade' width='400' height='400'></div>";
+echo "<div><input type='radio' value='{$heart}'><img src={$heart} alt='donut' width='400' height='400'></div>";
+echo "<div><input type='radio' value='{$tall}'><img src={$tall} alt='donut' width='400' height='400'></div>";
 
 
 echo "<input type='submit' value='save selection'>";
