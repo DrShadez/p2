@@ -14,14 +14,24 @@ try {
   $sth->execute();
   $displayinfo=$sth->fetchAll();
   $divid=1;
-  foreach($displayinfo as $info){
-    echo "<br>";
-    echo "<div class='div{$divid}'>";
-    echo $info['username']  . $info['is_admin'];
-    echo "</div>";
-    $divid+=1;
-  };
 
+  echo "<form action='updateuser.php' id='update' method='POST'>";
+  echo "<select id='updateindividual' name='updateindividual'>";
+
+  foreach($displayinfo as $info){
+      if($info['username']=='admin'){
+
+      }
+      else{
+          echo "<option value='{$divid}'>{$info['username']}  . {$info['is_admin']}</option>";
+          $divid+=1;
+      }
+
+  };
+echo "</select>";
+echo "<input type='submit' value='delete '>";
+
+echo "</form>";
 }
 catch (PDOException $e) {
     echo "<p>Error connecting to database!</p>";

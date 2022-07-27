@@ -26,7 +26,7 @@ $heart = $bush[4]['img'];
 $tall = $bush[5]['img'];
 
 
-echo "<form action='cart.php' id='bushoption' method='post'>";
+echo "<form action='cart.php' name='bushoption' id='bushoption' method='POST'>";
 echo "<div><input type='radio' value='{$donut}'><img src={$donut} alt='donut' width='400' height='400'></div>";
 echo "<div><input type='radio' value='{$spiral}'><img src={$spiral} alt='spiral' width='400' height='400'></div>";
 echo "<div><input type='radio' value='{$maze}'><img src={$maze} alt='maze' width='400' height='400'></div>";
@@ -38,4 +38,10 @@ echo "<div><input type='radio' value='{$tall}'><img src={$tall} alt='donut' widt
 echo "<input type='submit' value='save selection'>";
 echo "</form>";
 
+echo "<div id='result'></div>";
 ?>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+<script src="catalogue.js"></script>

@@ -25,7 +25,7 @@ echo "<input type='password' id='confirmpass' name='confirmpass' placeholder='Re
 echo "<input type='submit' value='signup'>";
   echo "</form>";
 
-
+echo"<p> Already have an account? Click Here: <a href = 'signin.php' class = 'button'>Sign In </a>";
 
 
 }
