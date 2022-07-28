@@ -180,7 +180,7 @@ catch (PDOException $e){
 
 
   ?>
-  <form action='dropem.php' id='drops' method='POST'>
+  <form action='loadingbar.php' id='drops' method='POST'>
     <input type='submit' name='buy' id='buy' value='BUY'>
     <a  href="pastorders.php">Previous Orders</a>
     <a  href="catalogue.php">Back?</a>
