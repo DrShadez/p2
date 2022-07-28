@@ -14,9 +14,7 @@ try {
 catch (PDOException $e){
   echo "<p>Error: {$e->getMessage()}</p>";
 }
-$sphere = $_POST['sphere'];
-echo "water";
-echo empty($_POST['sphere']);
+
 if (empty($_POST['sphere'])) {
   echo "hesus";
 
