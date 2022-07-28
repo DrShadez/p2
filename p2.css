@@ -5,7 +5,7 @@
 }
 .parallax1 {
   /* The image used */
-  background-image: url("dingbnong.jpg");
+  background-image: url("bush.jpg");
 
   /* Set a specific height */
   min-height: 500px;
@@ -52,7 +52,7 @@ text-align: center;
 
 .parallax2{
     /* The image used */
-    background-image: url("images.jpeg");
+    background-image: url("bush.jpg");
 
     /* Set a specific height */
     min-height: 500px;
@@ -68,16 +68,16 @@ text-align: center;
 .button {
   text-decoration: none;
   color: #2F3930;
-  padding: 2px 6px 2px 6px;
+  padding: 5px 9px 5px 9px;
   border: 1px solid #282F29;
   background: #A8F3AF;
 }
 
 .title {
   font-weight: 600;
-  font-family: serif;
-  font-size: 60px;
-  color: #00FF19;
+  font-family: inherit;
+  font-size: 40px;
+  color: #227C2F;
 }
 body {
   font-family: lemon;
@@ -145,6 +145,7 @@ table {
   background-color: #CCFCD3;
   margin-left: auto;
   margin-right: auto;
+  width: 600px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
@@ -152,7 +153,8 @@ table {
 .sub {
   	background: #3E8148;
   	padding: 10px 30px;
-  	margin: 0;
+  	margin-left: auto;
+    margin-right: auto;
   	font-family: lemon;
   	font-size: inherit;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -192,3 +194,10 @@ table {
   border: 2px black;
   box-sizing: border-box;
 }
+
+.center2 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 19%;
+  height: 70%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
