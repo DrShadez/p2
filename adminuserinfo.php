@@ -28,7 +28,7 @@ if(isset($_SESSION["sessionid"])){
 }
 //if user doesn't have a sessionid, give them one
 else{
-  $_SESSION["sessionid"]= $_POST['renameindividual'];
+  $_SESSION["sessionid"]= htmlspecialchars($_POST['renameindividual']);
 }
 try {
     $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
