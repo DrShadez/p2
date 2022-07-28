@@ -3,8 +3,9 @@
 session_start();
 require 'config.php';
 if(!isset($_SESSION["valid"])){
-  header('Location:signin.php');
+  header('Location:https://atdpsites.berkeley.edu/skshastri/AIC/p2/signin.php');
 }
+
 try {
   $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
   $sth = $dbh -> prepare('SELECT * FROM `bushes`');
@@ -22,11 +23,10 @@ catch (PDOException $e){
 <body>
 
 <ul class="nav">
- <li><a href="home.php">Home </a></li>
-  <li><a href="catalogue.php">Cuts</a></li>
-  <li><a href="cart.php">Cart</a></li>
-  <li><a href="contact.php">Contact</a></li>
-  <li><a href="about.php">About</a></li>
+  <li><a href="home.php">Home </a></li>
+  <li><a class="current" href="catalogue.php">Cuts</a></li>
+  <li><a href="#">Contact</a></li>
+  <li><a href="#">About</a></li>
   <li class="logoish"><a  href="home.php">TheCuts</a></li>
 </ul>
 
@@ -59,7 +59,8 @@ echo "<form action='cart.php' id='bushoption' method='post'>";
 //
 
 // echo "<input type='submit' value='save selection'>";
-
+$username=$_SESSION["user"];
+echo "<p class='welcome'>Welcome, {$username}</p>";
 ?>
 <div class="choices">
 
@@ -73,7 +74,7 @@ echo "<form action='cart.php' id='bushoption' method='post'>";
           <img src='linglong.jpg' alt='donut' width="300px" height="175px">
       <h3>The Sphere Cut</h3>
 
-      <p>The sphere cut is a type of cut in which the bush is cut in a globe like shape. It truly is simpistic but beautiful.</p>
+      <p>The sphere cut is a type of cut in which the bush is cut in a globe like shape. <br> It truly is simpistic but beautiful.</p>
       <input type="checkbox" id="sphere" name="sphere" value="sphere">
       <label for="sphere"> Add to Cart?</label><br>
     </div>
@@ -88,7 +89,7 @@ echo "<form action='cart.php' id='bushoption' method='post'>";
           <img src='watersa.jpg' alt='donut' width="300px" height="175px">
       <h3>The Spiral Cut</h3>
 
-      <p>The spiral cut is a type of cut that goes in spiral shape from the ground up. It is more elegant than the sphere cut.</p>
+      <p>The spiral cut is a type of cut that goes in spiral shape from the ground up.<br> It is more elegant than the sphere cut.</p>
       <input type="checkbox" id="spiral" name="spiral" value="spiral">
       <label for="spiral"> Add to Cart?</label><br>
     </div>
@@ -101,7 +102,7 @@ echo "<form action='cart.php' id='bushoption' method='post'>";
           <img src='mazebsuh.jpg' alt='donut' width="300px" height="175px">
       <h3>The Maze Trim</h3>
 
-      <p>The maze trim is a trim for a large amount of bushes of the same species. It adds mystery and fun to your garden.</p>
+      <p>The maze trim is a trim for a large amount of bushes of the same species.<br> It adds mystery and fun to your garden.</p>
       <input type="checkbox" id="maze" name="maze" value="maze">
       <label for="maze"> Add to Cart?</label><br>
     </div>
@@ -138,15 +139,13 @@ echo "<form action='cart.php' id='bushoption' method='post'>";
     </br>
       <div id="content">
             <img src='long.jpg' alt='donut' width="300px" height="175px">
-        <h3>The Tall Cut</h3>
+        <h3>The Long Cut</h3>
 
-        <p>The tall cut is a classic cut that is often used as background cut. It is nothing special, but adds a sense of cleanliness.</p>
+        <p>The long cut is a classic cut that is often used as background cut. It is nothing special, but adds a sense of cleanliness.</p>
         <input type="checkbox" id="tall" name="tall" value="tall">
         <label for="tall"> Add to Cart?</label><br>
       </div>
     </div>
-
-
 
 <input type='submit' value='save selection'>
 </form>
