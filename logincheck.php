@@ -1,15 +1,20 @@
 <body>
 <?php
+  
+  //accessing session info
 session_start();
 
 $sessionid = $_SESSION["seshid"];
 
 require 'config.php';
+  
+//if user isn't logged in, redirect to signin
 if(!isset($_SESSION["valid"])){
   header('Location:signin.php');
 }
 
-
+  
+//backend validation for if either of the text fields are empty
 if(empty(htmlspecialchars($_POST['username']))){
   echo "empty username";
   exit;
@@ -24,24 +29,26 @@ try {
   //dbh configuration
     $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
 
-//seperate query for getting info from player table
+//seperate query for getting info from user_info
   $sth1 = $dbh->prepare("SELECT * FROM user_info WHERE username=:enteredusername");
-//query for joining all three tables and accessing all columns/rows in tables
 
     $sth1->bindValue(":enteredusername",htmlspecialchars($_POST['username']));
     $sth1->execute();
     $userinfo = $sth1->fetchAll();
+    //getting the password of the user that is logged in
     $realpass=($userinfo[0]["passhash"]);
     $adminuser='admin';
     $isadmin=1;
 
+  //query for accessing all of userinfo that is specific to admin
     $adminsth= $dbh->prepare("SELECT * FROM user_info WHERE `username`=:adminuser AND `is_admin`=:isadmin");
     $adminsth->bindValue(":adminuser",$adminuser);
     $adminsth->bindValue(":isadmin",$isadmin);
     $adminsth->execute();
     $admininfo=$adminsth->fetchColumn();
 
-
+  
+//if the user has a username of admin, check that the password is correct, and then redirect to adminview.  Also pass "valid" to $_SESSION[ädminvalid""]
 
         if(htmlspecialchars($_POST['username'])==$adminuser){
           if(password_verify(htmlspecialchars($_POST['pass']),$realpass)){
@@ -55,13 +62,14 @@ try {
 
 
 
-
+//if the rows exist, and the passwords are correct, redirect user to catalogue.php
     elseif (isset($userinfo)){
           if(password_verify(htmlspecialchars($_POST['pass']),$realpass)){
             header('Location:catalogue.php');
             $_SESSION["valid"]="valid";
             echo "everything worked";
           }
+     //checking for if the username or passwords don't match
       elseif(!password_verify(htmlspecialchars($_POST['pass']),$realpass)){
         echo "wrong username or password";
       }
@@ -70,6 +78,7 @@ try {
     }
 }
 
+  //defines the session username
 if (isset($_SESSION["user"])) {
   // code...
 }
