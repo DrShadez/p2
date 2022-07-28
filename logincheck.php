@@ -10,16 +10,16 @@ if(!isset($_SESSION["valid"])){
 }
 
 
-if(empty($_POST['username'])){
+if(empty(htmlspecialchars($_POST['username']))){
   echo "empty username";
   exit;
 }
 
-elseif(empty($_POST['pass'])){
+elseif(empty(htmlspecialchars($_POST['pass']))){
   echo "empty password";
   exit;
 }
-var_dump($_POST);
+
 try {
   //dbh configuration
     $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
@@ -28,7 +28,7 @@ try {
   $sth1 = $dbh->prepare("SELECT * FROM user_info WHERE username=:enteredusername");
 //query for joining all three tables and accessing all columns/rows in tables
 
-    $sth1->bindValue(":enteredusername",$_POST['username']);
+    $sth1->bindValue(":enteredusername",htmlspecialchars($_POST['username']));
     $sth1->execute();
     $userinfo = $sth1->fetchAll();
     $realpass=($userinfo[0]["passhash"]);
@@ -43,8 +43,8 @@ try {
 
 
 
-        if($_POST['username']==$adminuser){
-          if(password_verify($_POST['pass'],$realpass)){
+        if(htmlspecialchars($_POST['username'])==$adminuser){
+          if(password_verify(htmlspecialchars($_POST['pass']),$realpass)){
             header('Location:adminview.php');
             $_SESSION["adminvalid"]="valid";
         }
@@ -57,12 +57,12 @@ try {
 
 
     elseif (isset($userinfo)){
-          if(password_verify($_POST['pass'],$realpass)){
+          if(password_verify(htmlspecialchars($_POST['pass']),$realpass)){
             header('Location:catalogue.php');
             $_SESSION["valid"]="valid";
             echo "everything worked";
           }
-      elseif(!password_verify($_POST['pass'],$realpass)){
+      elseif(!password_verify(htmlspecialchars($_POST['pass']),$realpass)){
         echo "wrong username or password";
       }
     else{
@@ -74,7 +74,7 @@ if (isset($_SESSION["user"])) {
   // code...
 }
 else {
-  $_SESSION["user"] = $_POST['username'];
+  $_SESSION["user"] = htmlspecialchars($_POST['username']);
 }
 
 echo "<a href='signin.php'>back</a>";
