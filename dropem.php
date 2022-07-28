@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <?php
+//accessing session info
 session_start();
 require 'config.php';
+//if user isn't logged in, redirect to signin
 if(!isset($_SESSION["valid"])){
   header('Location:signin.php');
 }
 try {
+  //makes sure that current order only displays the order that the user is currently on by dropping it after they select the buy button
   $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
   $sth = $dbh -> prepare('DROP TABLE IF EXISTS `current_order`');
   $sth -> execute();
+  //uses new .sql file to drop all of the file contents
   $query = file_get_contents('currentorderyyy.sql');
   $dbh->exec($query);
 }
@@ -22,6 +26,7 @@ catch (PDOException $e){
       <link rel="stylesheet" href="p2.css">
 </head>
 <body>
+  <!--navbar config-->
   <ul class="nav">
     <li><a href="home.php">Home </a></li>
     <li><a class="current" href="catalogue.php">Cuts</a></li>
