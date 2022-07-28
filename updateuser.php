@@ -12,11 +12,11 @@ try {
 
 
 
-if(isset($_POST['deletebtn'])){
+if(isset(htmlspecialchars($_POST['deletebtn']))){
   $sth = $dbh->prepare("SELECT * FROM user_info ");
   $sth->execute();
   $information = $sth->fetchAll(); //an array of arrays
-  $id=$_POST['updateindividual'];
+  $id=htmlspecialchars($_POST['updateindividual']);
   $sth=$dbh->prepare("DELETE FROM user_info WHERE id=:id ");
   $sth->bindValue(':id',$id);
   if ($sth->execute()==true){
@@ -26,10 +26,10 @@ if(isset($_POST['deletebtn'])){
 }
 
 
-$usernameid=$_POST['renameindividual'];
-$newusername=$_POST['renamevalue'];
+$usernameid=htmlspecialchars($_POST['renameindividual']);
+$newusername=htmlspecialchars($_POST['renamevalue']);
 
-if (isset($_POST["renameindividual"])) {
+if (isset(htmlspecialchars($_POST["renameindividual"]))) {
 $sth2=$dbh->prepare("UPDATE user_info SET username=:name WHERE id=:id");
   $sth2->bindValue(":name",$newusername );
   $sth2->bindValue(":id", "$usernameid");
@@ -38,10 +38,10 @@ $sth2=$dbh->prepare("UPDATE user_info SET username=:name WHERE id=:id");
 }
 }
 
-$newpass=password_hash($_POST['addpassvalue'],PASSWORD_DEFAULT);
-$newusername=$_POST['adduservalue'];
+$newpass=password_hash(htmlspecialchars($_POST['addpassvalue']),PASSWORD_DEFAULT);
+$newusername=htmlspecialchars($_POST['adduservalue']);
 $is_admin=0;
-if (isset($_POST["addbtn"])) {
+if (isset(htmlspecialchars($_POST["addbtn"]))) {
 $sth4=$dbh->prepare("INSERT INTO user_info (is_admin, passhash, username) VALUES (:is_admin,:passhash,:username)");
   $sth4->bindValue(":is_admin",$is_admin );
   $sth4->bindValue(":passhash",$newpass );
