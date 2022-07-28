@@ -14,36 +14,41 @@ try {
 catch (PDOException $e){
   echo "<p>Error: {$e->getMessage()}</p>";
 }
-$sphere = $_POST['sphere'];
+$total=0;
+$sphere = 35;
 if (empty($_POST['sphere'])) {
-  echo "hesus";
+
 
 }
 else {
   $sth = $dbh -> prepare(
 
   "INSERT INTO current_order
-  (`design`, `img`, `user`)
-  VALUES('sphere', 'linglong.jpg', :user)");
+  (`design`, `img`, `user`, `cost`)
+
+  VALUES('sphere', 'linglong.jpg', :user, :cost )");
   $sth->bindValue(":user", $_SESSION["user"]);
+  $sth->bindValue(":cost", $sphere);
   $sth -> execute();
 
 }
-$spiral = $_POST['spiral'];
+$spiral = 45;
 if (empty($_POST['spiral'])) {
 
 }
 else {
   $sth = $dbh -> prepare(
   "INSERT INTO current_order
-  (`design`, `img`, `user`)
-  VALUES('spiral', 'watersa.jpg', :user)");
+  (`design`, `img`, `user`, `cost`)
+
+  VALUES('spiral', 'watersa.jpg', :user, :cost )");
   $sth->bindValue(":user", $_SESSION["user"]);
+  $sth->bindValue(":cost", $spiral);
 
   $sth -> execute();
 }
 
-$maze = $_POST['maze'];
+$maze = 123;
 if (empty($_POST['maze'])) {
 
 }
@@ -51,46 +56,54 @@ else {
 
   $sth = $dbh -> prepare(
   "INSERT INTO `current_order`
-  (`design`, `img`, `user`)
-  VALUES('maze', 'mazebsuh.jpg', :user)");
+  (`design`, `img`, `user`, `cost`)
+
+  VALUES('maze', 'mazebsuh.jpg', :user, :cost )");
   $sth->bindValue(":user", $_SESSION["user"]);
+    $sth->bindValue(":cost", $maze);
   $sth -> execute();
 }
-  $elephant = $_POST['elephant'];
+  $elephant = 80;
 if (empty($_POST['elephant'])) {
 
 }
 else {
   $sth = $dbh -> prepare(
   "INSERT INTO `current_order`
-  (`design`, `img`, `user`)
-  VALUES('elephant', 'theelephants.jpg', :user)");
+  (`design`, `img`, `user`, `cost`)
+
+  VALUES('elephant', 'theelephants.jpg', :user, :cost )");
   $sth->bindValue(":user", $_SESSION["user"]);
+  $sth->bindValue(":cost", $elephant);
   $sth -> execute();
 }
-  $heart = $_POST['heart'];
+  $heart = 60;
 if (empty($_POST['heart'])) {
 
 }
 else {
   $sth = $dbh -> prepare(
   "INSERT INTO `current_order`
-  (`design`, `img`, `user`)
-  VALUES('heart', 'heart.jpg', :user)");
+  (`design`, `img`, `user`, `cost`)
+
+  VALUES('heart', 'heart.jpg', :user, :cost )");
   $sth->bindValue(":user", $_SESSION["user"]);
+  $sth->bindValue(":cost", $heart);
   $sth -> execute();
 
 }
-  $tall = $_POST['tall'];
+  $tall = 30;
 if (empty($_POST['tall'])) {
 
 }
 else {
   $sth = $dbh -> prepare(
   "INSERT INTO `current_order`
-  (`design`, `img`, `user`)
-  VALUES('tall', 'long.jpg', :user)");
+    (`design`, `img`, `user`, `cost`)
+
+  VALUES('tall', 'long.jpg', :user, :cost )");
   $sth->bindValue(":user", $_SESSION["user"]);
+  $sth->bindValue(":cost", $tall);
   $sth -> execute();
 
 }
@@ -104,12 +117,40 @@ try {
 catch (PDOException $e){
   echo "<p>Error: {$e->getMessage()}</p>";
 }
-var_dump($orders);
+
 ?>
 <html>
 <head>
       <link rel="stylesheet" href="p2.css">
 </head>
 <body>
+  <ul class="nav">
+    <li><a href="home.php">Home </a></li>
+    <li><a class="current" href="catalogue.php">Cuts</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">About</a></li>
+    <li class="logoish"><a  href="home.php">TheCuts</a></li>
+  </ul>
+
+  <h3>You ordered...</h3>
+  <?php
+  foreach ($orders as $order) {
+
+    echo "A/an " . $order['design'] . " cut which costs $" . $order['cost'];
+    $total +=$order['cost'];
+    echo "<br>";
+  }
+
+  echo "Your total amount comes out to $" . $total;
+
+
+
+  ?>
+  <form action='dropem.php' id='drops' method='POST'>
+    <input type='submit' name='buy' id='buy' value='BUY'>
+    <a  href="catalogue.php">Back?</a>
+
+  </form>
+
 </body>
 </html>
