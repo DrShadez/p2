@@ -3,8 +3,20 @@
 <?php
 session_start();
 require 'config.php';
+if(empty($_POST['usernamemake'])){
+  echo "empty username";
+  exit;
+}
 
+elseif(empty($_POST['passmake'])){
+  echo "empty password";
+  exit;
+}
 
+elseif(empty($_POST['confirmpass'])){
+  echo "empty password";
+  exit;
+}
 try {
 
   //dbh configuration

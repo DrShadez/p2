@@ -6,6 +6,17 @@ $sessionid = $_SESSION["seshid"];
 
 require 'config.php';
 
+
+
+if(empty($_POST['username'])){
+  echo "empty username";
+  exit;
+}
+
+elseif(empty($_POST['pass'])){
+  echo "empty password";
+  exit;
+}
 var_dump($_POST);
 try {
   //dbh configuration
