@@ -29,8 +29,9 @@ catch (PDOException $e){
 </ul>
 
 <div class="main">
-  <h2>dingdong</h2>
-  <p>Example wahter</p>
+  <h2>Our Different Cuts</h2>
+  <p>Each of our seperate bushc uts are tailored to our customers satisfactions<br>
+  WE have over 40+ yars of experience, so we know what we are doing!</p>
 
 
 
@@ -46,7 +47,7 @@ $heart = $bush[4]['img'];
 $tall = $bush[5]['img'];
 
 
-// echo "<form action='cart.php' id='bushoption' method='post'>";
+echo "<form action='cart.php' id='bushoption' method='post'>";
 // echo "<div><input type='radio' value='{$donut}'><img src={$donut} alt='donut' width='400' height='400'></div>";
 // echo "<div><input type='radio' value='{$spiral}'><img src={$spiral} alt='spiral' width='400' height='400'></div>";
 // echo "<div><input type='radio' value='{$maze}'><img src={$maze} alt='maze' width='400' height='400'></div>";
@@ -56,23 +57,103 @@ $tall = $bush[5]['img'];
 //
 
 // echo "<input type='submit' value='save selection'>";
-// echo "</form>";
+
 ?>
+<div class="choices">
 
-<div class="optionl">
+
+
+
+  <div class="optionl">
+
+  </br>
+    <div id="content">
+          <img src='linglong.jpg' alt='donut' width="300px" height="175px">
+      <h3>The Sphere Cut</h3>
+
+      <p>The sphere cut is a type of cut in which the bush is cut in a globe like shape. <br> It truly is simpistic but beautiful.</p>
+      <input type="checkbox" id="sphere" name="cuts" value="sphere">
+      <label for="sphere"> Add to Cart?</label><br>
+    </div>
+  </div>
+
+
+
+  <div class="optionl">
+
+  </br>
+    <div id="content">
+          <img src='watersa.jpg' alt='donut' width="300px" height="175px">
+      <h3>The Spiral Cut</h3>
+
+      <p>The spiral cut is a type of cut that goes in spiral shape from the ground up.<br> It is more elegant than the sphere cut.</p>
+      <input type="checkbox" id="spiral" name="cuts" value="spiral">
+      <label for="spiral"> Add to Cart?</label><br>
+    </div>
+  </div>
+
+  <div class="optionl">
+
+  </br>
+    <div id="content">
+          <img src='mazebsuh.jpg' alt='donut' width="300px" height="175px">
+      <h3>The Maze Trim</h3>
+
+      <p>The maze trim is a trim for a large amount of bushes of the same species.<br> It adds mystery and fun to your garden.</p>
+      <input type="checkbox" id="maze" name="cuts" value="maze">
+      <label for="maze"> Add to Cart?</label><br>
+    </div>
+  </div>
+
+  <div class="optionl">
+
+  </br>
+    <div id="content">
+          <img src='theelephants.jpg' alt='donut' width="300px" height="175px">
+      <h3>The Elephant Cut</h3>
+
+      <p>The elephant cut is a type of cut that as it says, makes your large bush and elephant. It is an eyecatcher for sure!</p>
+      <input type="checkbox" id="elephant" name="cuts" value="elephant">
+      <label for="elephant"> Add to Cart?</label><br>
+    </div>
+  </div>
+
+  <div class="optionl">
+
+  </br>
+    <div id="content">
+          <img src='heart.jpg' alt='donut' width="300px" height="175px">
+      <h3>The Heart Cut</h3>
+
+      <p>The heart cut represents and shows your love for your garden. It can be a beautiful centerpiece standing alone as well!</p>
+      <input type="checkbox" id="heart" name="cuts" value="heart">
+      <label for="heart"> Add to Cart?</label><br>
+    </div>
+  </div>
+
+    <div class="optionl">
+
+    </br>
+      <div id="content">
+            <img src='long.jpg' alt='donut' width="300px" height="175px">
+        <h3>The Long Cut</h3>
+
+        <p>The long cut is a classic cut that is often used as background cut. It is nothing special, but adds a sense of cleanliness.</p>
+        <input type="checkbox" id="tall" name="cuts" value="tall">
+        <label for="tall"> Add to Cart?</label><br>
+      </div>
+    </div>
+
+
+
+
+</form>
+
+
+
+
 
 </div>
-<div class="optionl">
-
-</div>
-
 </div>
 </body>
-
-
-<script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
-<script src="catalogue.js"></script>
 </html>
