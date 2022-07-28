@@ -3,7 +3,9 @@
 
 </head>
 <body class = 'haha2'>
-
+<?php
+session_start();
+?>
 
 
 <ul class="nav">
