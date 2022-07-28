@@ -26,7 +26,7 @@ session_start();
     <div> You can call us at +1 420-555-6969.</div>
   </li>
   <li class="size">
-    <p> If you don't have a phone for some reason (loser), then you can email us at urgettingscammed@gmail.com.</p>
+    <p> If you don't have a phone for some reason , then you can email us at urgettingscammed@gmail.com.</p>
   </li>
   <li class="size">
     <p> Please do not call us about a missing shipment because we do not care. </p>
