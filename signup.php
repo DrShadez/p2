@@ -5,7 +5,7 @@
 <body class = 'haha2'>
 
 
-
+<!--navbar config-->
 <ul class="nav">
   <li><a href="home.php">Home </a></li>
   <li><a href="catalogue.php">Cuts</a></li>
@@ -19,6 +19,7 @@
 <h1 class = 'center'> Sign up </h1>
 
 <?php
+  //accessing session info
 session_start();
 require 'config.php';
 
@@ -32,6 +33,7 @@ try {
     $sth1->execute();
     $userinfo = $sth1->fetchAll();
 
+  //form for making username and password, and retyping password
     echo "<div class = 'center'><form action='loginstore.php' id='home' method='post'>";
 
 echo "<div><input type='text' id='usernamemake' name='usernamemake' placeholder='Create username' required></div>";
