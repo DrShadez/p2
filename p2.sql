@@ -39,13 +39,9 @@ CREATE TABLE IF NOT EXISTS `current_order`(
 );
 
 
-
 CREATE TABLE IF NOT EXISTS `pastorders` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `design` varchar(64),
-  `img` varchar(255),
-  `user` varchar(255),
-  `cost` int(12),
-
+  `id` in NOT NULL AUTO_INCREMENT,
+  `username` varchar(12),
+  `bushes_design` varchar(64),
   PRIMARY KEY (`id`)
 );

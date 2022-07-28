@@ -1,8 +1,10 @@
-
-
 @font-face {
   font-family: lemon;
-  src: url(lemon.otf);
+  src: url(Lemon_Days.otf);
+}
+
+.welcome{
+  color:darkgreen;
 }
 .parallax1 {
   /* The image used */
@@ -83,6 +85,7 @@ text-align: center;
 body {
   font-family: lemon;
   margin: 0px;
+  background-color:lightgreen;
 }
 h2{
   margin: inherit;

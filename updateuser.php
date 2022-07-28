@@ -3,27 +3,60 @@
 session_start();
 require 'config.php';
 
-
+if(!isset($_SESSION["adminvalid"])){
+  header('Location:https://atdpsites.berkeley.edu/skshastri/AIC/p2/signin.php');
+}
 try {
     $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
-    //getting multiple rows
-    if(isset())
-    $sth = $dbh->prepare("SELECT * FROM user_info ");
-    $sth->execute();
-    $information = $sth->fetchAll(); //an array of arrays
-    $id=$_POST['updateindividual'];
-    $sth3=$dbh->prepare("DELETE FROM user_info WHERE id=:id ");
-    $sth3->bindValue(':id',$id);
-    var_dump($id);
 
-  if ($sth3->execute()==true){
-    echo "successfully released :(";
+
+
+
+if(isset($_POST['deletebtn'])){
+  $sth = $dbh->prepare("SELECT * FROM user_info ");
+  $sth->execute();
+  $information = $sth->fetchAll(); //an array of arrays
+  $id=$_POST['updateindividual'];
+  $sth=$dbh->prepare("DELETE FROM user_info WHERE id=:id ");
+  $sth->bindValue(':id',$id);
+  if ($sth->execute()==true){
+    echo "successfully deleted";
   }
 
+}
 
-echo "</form>";
+
+$usernameid=$_POST['renameindividual'];
+$newusername=$_POST['renamevalue'];
+
+if (isset($_POST["renameindividual"])) {
+$sth2=$dbh->prepare("UPDATE user_info SET username=:name WHERE id=:id");
+  $sth2->bindValue(":name",$newusername );
+  $sth2->bindValue(":id", "$usernameid");
+  if ($sth2->execute()==true){
+    echo "successfully renamed";
+}
+}
+
+$newpass=password_hash($_POST['addpassvalue'],PASSWORD_DEFAULT);
+$newusername=$_POST['adduservalue'];
+$is_admin=0;
+if (isset($_POST["addbtn"])) {
+$sth4=$dbh->prepare("INSERT INTO user_info (is_admin, passhash, username) VALUES (:is_admin,:passhash,:username)");
+  $sth4->bindValue(":is_admin",$is_admin );
+  $sth4->bindValue(":passhash",$newpass );
+  $sth4->bindValue(":username", "$newusername");
+  if ($sth4->execute()==true){
+    echo "successfully added";
+}
+}
+
+
   echo "<a href='https://atdpsites.berkeley.edu/skshastri/AIC/p2/adminview.php'>back</a>";
 }
+
+
+
 catch (PDOException $e) {
     echo "<p>Error connecting to database!</p>";
 }

@@ -1,4 +1,3 @@
-
 CREATE TABLE IF NOT EXISTS `current_order`(
     `id` int NOT NULL AUTO_INCREMENT,
     `design` varchar(64),

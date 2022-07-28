@@ -3,8 +3,39 @@
 session_start();
 require 'config.php';
 if(!isset($_SESSION["valid"])){
-  header('Location:signin');
+  header('Location:signin.php');
 }
+
+function checkboxvalidation($post){
+  if(isset($_POST[$post])){
+    $spherecheckbox=$_POST[$post];
+  }
+  else{
+    $spherecheckbox=false;
+
+    }
+  }
+
+  if($spherecheckbox=$post){
+
+  }
+
+  else{
+    echo "funny haha";
+  }
+
+
+
+checkboxvalidation('sphere');
+checkboxvalidation('spiral');
+checkboxvalidation('maze');
+checkboxvalidation('elephant');
+checkboxvalidation('heart');
+checkboxvalidation('tall');
+
+
+
+
 try {
   $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
   $sth = $dbh -> prepare('SELECT * FROM `bushes`');
@@ -16,20 +47,17 @@ catch (PDOException $e){
 }
 $total=0;
 $sphere = 35;
-if (empty($_POST['sphere'])) {
 
-
+if (empty($_POST['sphere']) && empty($_POST['spiral'])  && empty($_POST['maze']) && empty($_POST['elephant']) && empty($_POST['heart']) && empty($_POST['tall'])) {
+  echo"not cool";
+  exit;
 }
+
 else {
   $sth = $dbh -> prepare(
 
   "INSERT INTO current_order
   (`design`, `img`, `user`, `cost`)
-
-  VALUES('sphere', 'linglong.jpg', :user, :cost );
-  INSERT INTO `pastorders`
-    (`design`, `img`, `user`, `cost`)
-
   VALUES('sphere', 'linglong.jpg', :user, :cost )");
   $sth->bindValue(":user", $_SESSION["user"]);
   $sth->bindValue(":cost", $sphere);
@@ -44,11 +72,6 @@ else {
   $sth = $dbh -> prepare(
   "INSERT INTO current_order
   (`design`, `img`, `user`, `cost`)
-
-  VALUES('spiral', 'watersa.jpg', :user, :cost );
-  INSERT INTO `pastorders`
-    (`design`, `img`, `user`, `cost`)
-
   VALUES('spiral', 'watersa.jpg', :user, :cost )");
   $sth->bindValue(":user", $_SESSION["user"]);
   $sth->bindValue(":cost", $spiral);
@@ -65,11 +88,6 @@ else {
   $sth = $dbh -> prepare(
   "INSERT INTO `current_order`
   (`design`, `img`, `user`, `cost`)
-
-  VALUES('maze', 'mazebsuh.jpg', :user, :cost );
-  INSERT INTO `pastorders`
-    (`design`, `img`, `user`, `cost`)
-
   VALUES('maze', 'mazebsuh.jpg', :user, :cost )");
   $sth->bindValue(":user", $_SESSION["user"]);
     $sth->bindValue(":cost", $maze);
@@ -83,11 +101,6 @@ else {
   $sth = $dbh -> prepare(
   "INSERT INTO `current_order`
   (`design`, `img`, `user`, `cost`)
-
-  VALUES('elephant', 'theelephants.jpg', :user, :cost );
-  INSERT INTO `pastorders`
-    (`design`, `img`, `user`, `cost`)
-
   VALUES('elephant', 'theelephants.jpg', :user, :cost )");
   $sth->bindValue(":user", $_SESSION["user"]);
   $sth->bindValue(":cost", $elephant);
@@ -101,11 +114,6 @@ else {
   $sth = $dbh -> prepare(
   "INSERT INTO `current_order`
   (`design`, `img`, `user`, `cost`)
-
-  VALUES('heart', 'heart.jpg', :user, :cost );
-  INSERT INTO `pastorders`
-    (`design`, `img`, `user`, `cost`)
-
   VALUES('heart', 'heart.jpg', :user, :cost )");
   $sth->bindValue(":user", $_SESSION["user"]);
   $sth->bindValue(":cost", $heart);
@@ -120,11 +128,6 @@ else {
   $sth = $dbh -> prepare(
   "INSERT INTO `current_order`
     (`design`, `img`, `user`, `cost`)
-
-  VALUES('tall', 'long.jpg', :user, :cost );
-  INSERT INTO `pastorders`
-    (`design`, `img`, `user`, `cost`)
-
   VALUES('tall', 'long.jpg', :user, :cost )");
   $sth->bindValue(":user", $_SESSION["user"]);
   $sth->bindValue(":cost", $tall);
@@ -172,10 +175,6 @@ catch (PDOException $e){
   ?>
   <form action='dropem.php' id='drops' method='POST'>
     <input type='submit' name='buy' id='buy' value='BUY'>
-    <a  href="pastorders.php">Previous Orders</a>
     <a  href="catalogue.php">Back?</a>
 
   </form>
-
-</body>
-</html>

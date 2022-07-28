@@ -5,6 +5,8 @@ session_start();
 $sessionid = $_SESSION["seshid"];
 
 require 'config.php';
+
+var_dump($_POST);
 try {
   //dbh configuration
     $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
@@ -30,7 +32,7 @@ try {
 
         if($_POST['username']==$adminuser){
           if(password_verify($_POST['pass'],$realpass)){
-            header('Location:adminview.php');
+            header('Location:https://atdpsites.berkeley.edu/skshastri/AIC/p2/adminview.php');
             $_SESSION["adminvalid"]="valid";
         }
         else{
@@ -43,7 +45,7 @@ try {
 
     elseif (isset($userinfo)){
           if(password_verify($_POST['pass'],$realpass)){
-            header('Location:catalogue.php');
+            header('Location:https://atdpsites.berkeley.edu/skshastri/AIC/p2/catalogue.php');
             $_SESSION["valid"]="valid";
             echo "everything worked";
           }
@@ -54,13 +56,13 @@ try {
       echo "wrong username or password";
     }
 }
+
 if (isset($_SESSION["user"])) {
   // code...
 }
 else {
   $_SESSION["user"] = $_POST['username'];
 }
-
 
 echo "<a href='signin.php'>back</a>";
 
