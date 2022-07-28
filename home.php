@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>home</title>
       <link rel="stylesheet" href="p2.css">
-
-  </head>
+</head>
+  
 
 <body style = "margin:0">
 
@@ -28,5 +28,5 @@
 <div class="parallax2"></div>
 
 </body>
-
 </html>
+
