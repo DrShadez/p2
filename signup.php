@@ -14,9 +14,9 @@
   <li class="logoish"><a  href="home.php">TheCuts</a></li>
 </ul>
 
-<p> Explore our variety of bushes </p>
+<p class = 'center'> Sign Up to gain access! </p>
 <table><tr><td>
-<h1> Sign up </h1>
+<h1 class = 'center'> Sign up </h1>
 
 <?php
 session_start();
@@ -32,7 +32,7 @@ try {
     $sth1->execute();
     $userinfo = $sth1->fetchAll();
 
-    echo "<form action='loginstore.php' id='home' method='post'>";
+    echo "<div class = 'center'><form action='loginstore.php' id='home' method='post'>";
 
 echo "<div><input type='text' id='usernamemake' name='usernamemake' placeholder='Create username'></div>";
 
@@ -41,7 +41,7 @@ echo "<div><input type='password' id='passmake' name='passmake' placeholder='Cre
 echo "<div><input type='password' id='confirmpass' name='confirmpass' placeholder='Retype password'></div>";
 
 echo "<div><input type='submit' class ='sub' value='signup'></div>";
-  echo "</form>";
+  echo "</form></div>";
 
 
 
