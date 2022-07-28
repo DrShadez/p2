@@ -6,17 +6,17 @@ require 'config.php';
 if(!isset($_SESSION["valid"])){
   header('Location:signin.php');
 }
-if(empty($_POST['usernamemake'])){
+if(empty(htmlspecialchars($_POST['usernamemake']))){
   echo "empty username";
   exit;
 }
 
-elseif(empty($_POST['passmake'])){
+elseif(empty(htmlspecialchars($_POST['passmake']))){
   echo "empty password";
   exit;
 }
 
-elseif(empty($_POST['confirmpass'])){
+elseif(empty(htmlspecialchars($_POST['confirmpass']))){
   echo "empty password";
   exit;
 }
@@ -25,9 +25,9 @@ try {
   //dbh configuration
     $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
 
-    $newpass=password_hash($_POST['passmake'],PASSWORD_DEFAULT);
+    $newpass=password_hash(htmlspecialchars($_POST['passmake']),PASSWORD_DEFAULT);
 
-    $newusername=$_POST['usernamemake'];
+    $newusername=htmlspecialchars($_POST['usernamemake']);
 
 
 
@@ -42,28 +42,28 @@ try {
 
 
 
-    elseif(empty($_POST['usernamemake'])){
+    elseif(empty(htmlspecialchars($_POST['usernamemake']))){
       echo "please put a username";
     }
 
-    elseif (empty($_POST['passmake'])){
+    elseif (empty(htmlspecialchars($_POST['passmake']))){
       echo "please put a password";
     }
 
-    elseif(empty($_POST['confirmpass'])){
+    elseif(empty(htmlspecialchars($_POST['confirmpass']))){
       echo "please retype your password";
     }
 
-    elseif($_POST['passmake']!=$_POST['confirmpass']){
+    elseif(htmlspecialchars($_POST['passmake'])!=htmlspecialchars($_POST['confirmpass'])){
       echo "passwords don't match";
     }
 
     else{
-      if ($_POST['usernamemake']=='admin'){
+      if (htmlspecialchars($_POST['usernamemake']=='admin')){
         $isadmin=1;
       }
-      elseif($_POST['usernamemake']!=='admin'){
-        var_dump($_POST['usernamemake']);
+      elseif(htmlspecialchars($_POST['usernamemake'])!=='admin'){
+
         $isadmin=0;
       }
 
