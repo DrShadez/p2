@@ -1,4 +1,22 @@
-<body>
+<html>
+<head>    <link rel="stylesheet" href="p2.css">
+</head>
+<body class = 'haha2'>
+
+
+
+<ul class="nav">
+ <li><a href="home.php">Home </a></li>
+  <li><a href="catalogue.php">Cuts</a></li>
+  <li><a href="cart.php">Cart</a></li>
+  <li><a href="contact.php">Contact</a></li>
+  <li><a href="about.php">About</a></li>
+  <li class="logoish"><a  href="home.php">TheCuts</a></li>
+</ul>
+
+<p class = 'center'> Sign In to view our catalogue </p>
+<table><tr><td>
+<h1 class="center"> Sign In </h1>
 
 <?php
 session_start();
@@ -33,5 +51,7 @@ catch (PDOException $e) {
 }
 
 ?>
-
+</td></tr></table>
+<p class = 'center'>Don't have an account? Click Here: <a href = 'signup.php' class = 'button'> SIGN UP </a></p>
 </body>
+</html>
