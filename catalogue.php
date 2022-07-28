@@ -36,8 +36,8 @@ catch (PDOException $e){
 
 <div class="main">
   <h2>Our Different Cuts</h2>
-  <p>Each of our seperate bushc uts are tailored to our customers satisfactions<br>
-  WE have over 40+ yars of experience, so we know what we are doing!</p>
+  <p>Each of our seperate bush cuts are tailored to our customers satisfactions<br>
+  We have over 40+ years of experience, so we know what we are doing!</p>
 
 
 
