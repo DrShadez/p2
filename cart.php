@@ -13,7 +13,7 @@ if(!isset($_SESSION["valid"])){
 }
 //function for backend validation for each checkbox, so there isn't tons of lines of the same repeated code for each checkbox
 function checkboxvalidation($post){
-$spherecheckbox=$_POST[$post];
+$spherecheckbox=htmlspecialchars($_POST[$post]);
   //if spherechecked's value is the same as the post's value, proceed
   if($spherecheckbox=$post){
 
@@ -44,7 +44,7 @@ $total=0;
 $sphere = 35;
 
 //backend validation for if the checkbox is empty
-if (empty($_POST['sphere'])) {
+if (empty(htmlspecialchars($_POST['sphere']))) {
 
 
 }
@@ -66,7 +66,7 @@ else {
 }
 //same code for spiral
 $spiral = 45;
-if (empty($_POST['spiral'])) {
+if (empty(htmlspecialchars($_POST['spiral']))) {
 
 }
 else {
@@ -84,7 +84,7 @@ else {
 }
 //same code for maze
 $maze = 123;
-if (empty($_POST['maze'])) {
+if (empty(htmlspecialchars($_POST['maze']))) {
 
 }
 else {
@@ -102,7 +102,7 @@ else {
 }
 //same code for elephant
   $elephant = 80;
-if (empty($_POST['elephant'])) {
+if (empty(htmlspecialchars($_POST['elephant']))) {
 
 }
 else {
@@ -119,7 +119,7 @@ else {
 }
 //same code for heart
   $heart = 60;
-if (empty($_POST['heart'])) {
+if (empty(htmlspecialchars($_POST['heart']))) {
 
 }
 else {
@@ -137,7 +137,7 @@ else {
 }
 //same code for tall
   $tall = 30;
-if (empty($_POST['tall'])) {
+if (empty(htmlspecialchars($_POST['tall']))) {
 
 }
 else {
