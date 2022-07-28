@@ -30,7 +30,7 @@ try {
 
         if($_POST['username']==$adminuser){
           if(password_verify($_POST['pass'],$realpass)){
-            header('Location:https://atdpsites.berkeley.edu/skshastri/AIC/p2/adminview.php');
+            header('Location:adminview.php');
             $_SESSION["adminvalid"]="valid";
         }
         else{
@@ -43,7 +43,7 @@ try {
 
     elseif (isset($userinfo)){
           if(password_verify($_POST['pass'],$realpass)){
-            header('Location:https://atdpsites.berkeley.edu/skshastri/AIC/p2/catalogue.php');
+            header('Location:catalogue.php');
             $_SESSION["valid"]="valid";
             echo "everything worked";
           }
