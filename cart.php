@@ -130,6 +130,7 @@ catch (PDOException $e){
   <li><a href="cart.php">Cart</a></li>
   <li><a href="contact.php">Contact</a></li>
   <li><a href="about.php">About</a></li>
+      <li class="logoish"><a  href="home.php">TheCuts</a></li>
   </ul>
 
   <h3>You ordered...</h3>
