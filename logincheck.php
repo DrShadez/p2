@@ -54,7 +54,12 @@ try {
       echo "wrong username or password";
     }
 }
-
+if (isset($_SESSION["user"])) {
+  // code...
+}
+else {
+  $_SESSION["user"] = $_POST['username'];
+}
 
 
 echo "<a href='signin.php'>back</a>";
