@@ -144,7 +144,13 @@ catch (PDOException $e){
   echo "Your total amount comes out to $" . $total;
 
 
+
   ?>
+  <form action='dropem.php' id='drops' method='POST'>
+    <input type='submit' name='buy' id='buy' value='BUY'>
+    <a  href="catalogue.php">Back?</a>
+
+  </form>
 
 </body>
 </html>
