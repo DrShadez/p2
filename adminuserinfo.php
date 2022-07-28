@@ -1,3 +1,14 @@
+<html>
+<head>
+</head>
+<body class = 'haha'>
+<ul class="nav">
+  <li><a href="home.php">Home </a></li>
+  <li><a href="catalogue.php">Cuts</a></li>
+  <li><a href="contact.php">Contact</a></li>
+  <li><a href="about.php">About</a></li>
+  <li class="logoish"><a  href="home.php">TheCuts</a></li>
+</ul>
 <body>
 
 <?php
@@ -85,3 +96,4 @@ catch (PDOException $e) {
 ?>
 
 </body>
+</html>
