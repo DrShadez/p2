@@ -16,6 +16,7 @@ catch (PDOException $e){
 }
 ?>
 <html>
+<head>
       <link rel="stylesheet" href="p2.css">
 </head>
 <body>
@@ -72,7 +73,7 @@ echo "<form action='cart.php' id='bushoption' method='post'>";
       <h3>The Sphere Cut</h3>
 
       <p>The sphere cut is a type of cut in which the bush is cut in a globe like shape. <br> It truly is simpistic but beautiful.</p>
-      <input type="checkbox" id="sphere" name="cuts" value="sphere">
+      <input type="checkbox" id="sphere" name="sphere" value="sphere">
       <label for="sphere"> Add to Cart?</label><br>
     </div>
   </div>
@@ -87,7 +88,7 @@ echo "<form action='cart.php' id='bushoption' method='post'>";
       <h3>The Spiral Cut</h3>
 
       <p>The spiral cut is a type of cut that goes in spiral shape from the ground up.<br> It is more elegant than the sphere cut.</p>
-      <input type="checkbox" id="spiral" name="cuts" value="spiral">
+      <input type="checkbox" id="spiral" name="spiral" value="spiral">
       <label for="spiral"> Add to Cart?</label><br>
     </div>
   </div>
@@ -100,7 +101,7 @@ echo "<form action='cart.php' id='bushoption' method='post'>";
       <h3>The Maze Trim</h3>
 
       <p>The maze trim is a trim for a large amount of bushes of the same species.<br> It adds mystery and fun to your garden.</p>
-      <input type="checkbox" id="maze" name="cuts" value="maze">
+      <input type="checkbox" id="maze" name="maze" value="maze">
       <label for="maze"> Add to Cart?</label><br>
     </div>
   </div>
@@ -113,7 +114,7 @@ echo "<form action='cart.php' id='bushoption' method='post'>";
       <h3>The Elephant Cut</h3>
 
       <p>The elephant cut is a type of cut that as it says, makes your large bush and elephant. It is an eyecatcher for sure!</p>
-      <input type="checkbox" id="elephant" name="cuts" value="elephant">
+      <input type="checkbox" id="elephant" name="elephant" value="elephant">
       <label for="elephant"> Add to Cart?</label><br>
     </div>
   </div>
@@ -126,7 +127,7 @@ echo "<form action='cart.php' id='bushoption' method='post'>";
       <h3>The Heart Cut</h3>
 
       <p>The heart cut represents and shows your love for your garden. It can be a beautiful centerpiece standing alone as well!</p>
-      <input type="checkbox" id="heart" name="cuts" value="heart">
+      <input type="checkbox" id="heart" name="heart" value="heart">
       <label for="heart"> Add to Cart?</label><br>
     </div>
   </div>
@@ -139,14 +140,14 @@ echo "<form action='cart.php' id='bushoption' method='post'>";
         <h3>The Long Cut</h3>
 
         <p>The long cut is a classic cut that is often used as background cut. It is nothing special, but adds a sense of cleanliness.</p>
-        <input type="checkbox" id="tall" name="cuts" value="tall">
+        <input type="checkbox" id="tall" name="tall" value="tall">
         <label for="tall"> Add to Cart?</label><br>
       </div>
     </div>
 
 
 
-
+<input type='submit' value='save selection'>
 </form>
 
 
