@@ -29,8 +29,9 @@ catch (PDOException $e){
 <ul class="nav">
   <li><a href="home.php">Home </a></li>
   <li><a class="current" href="catalogue.php">Cuts</a></li>
-  <li><a href="#">Contact</a></li>
-  <li><a href="#">About</a></li>
+  <li><a href="cart.php">Cart</a></li>
+  <li><a href="contact.php">Contact</a></li>
+  <li><a href="about.php">About</a></li>
   <li class="logoish"><a  href="home.php">TheCuts</a></li>
 </ul>
 
