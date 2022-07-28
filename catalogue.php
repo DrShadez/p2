@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <?php
+
+//accessing session info
 session_start();
 require 'config.php';
+//if user isn't logged in, redirect to signin
 if(!isset($_SESSION["valid"])){
   header('Location:signin.php');
 }
 
 try {
+  //accessing info from bushes table
   $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
   $sth = $dbh -> prepare('SELECT * FROM `bushes`');
   $sth -> execute();
@@ -21,7 +25,7 @@ catch (PDOException $e){
       <link rel="stylesheet" href="p2.css">
 </head>
 <body>
-
+<!--navbar config-->
 <ul class="nav">
   <li><a href="home.php">Home </a></li>
   <li><a class="current" href="catalogue.php">Cuts</a></li>
@@ -37,10 +41,11 @@ catch (PDOException $e){
 
 
 
-
+<!--logout-->
 <a href=logout.php>logout</a>
 
 <?php
+//displaying all the bushes with their corresponding images and values 
 $donut = $bush[0]['img'];
 $spiral = $bush[1]['img'];
 $maze = $bush[2]['img'];
@@ -48,7 +53,7 @@ $elephant = $bush[3]['img'];
 $heart = $bush[4]['img'];
 $tall = $bush[5]['img'];
 
-
+//very big form that essentially puts all the bushes in checkboxes
 echo "<form action='cart.php' id='bushoption' method='post'>";
 // echo "<div><input type='radio' value='{$donut}'><img src={$donut} alt='donut' width='400' height='400'></div>";
 // echo "<div><input type='radio' value='{$spiral}'><img src={$spiral} alt='spiral' width='400' height='400'></div>";
@@ -59,7 +64,9 @@ echo "<form action='cart.php' id='bushoption' method='post'>";
 //
 
 // echo "<input type='submit' value='save selection'>";
+ //defines session username
 $username=$_SESSION["user"];
+ //based on the user that logs in, greets them with their username
 echo "<p class='welcome'>Welcome, {$username}</p>";
 ?>
 <div class="choices">
