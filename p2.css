@@ -5,7 +5,7 @@
 }
 .parallax1 {
   /* The image used */
-  background-image: url("bush.jpg");
+  background-image: url("nature.jpg");
 
   /* Set a specific height */
   min-height: 500px;
@@ -52,7 +52,7 @@ text-align: center;
 
 .parallax2{
     /* The image used */
-    background-image: url("bush.jpg");
+    background-image: url("nature.jpg");
 
     /* Set a specific height */
     min-height: 500px;
@@ -201,3 +201,15 @@ table {
   width: 19%;
   height: 70%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.contact {
+  width: 1000px;
+  height: 700px;
+}
+.size {
+  font-size: 25px;
+  text-align: center;
+}
+
