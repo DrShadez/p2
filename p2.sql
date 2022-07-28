@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `current_order`(
 
 );
 
-);
+
 
 
 CREATE TABLE IF NOT EXISTS `pastorders` (
