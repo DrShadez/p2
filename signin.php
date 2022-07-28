@@ -14,9 +14,9 @@
   <li class="logoish"><a  href="home.php">TheCuts</a></li>
 </ul>
 
-<p> Explore our variety of bushes </p>
+<p class = 'center'> Sign In to view our catalogue </p>
 <table><tr><td>
-<h1> Sign In </h1>
+<h1 class="center"> Sign In </h1>
 <?php
 session_start();
 require 'config.php';
@@ -32,7 +32,7 @@ try {
     $userinfo = $sth1->fetchAll();
 
   //form for first dropdown containing all trainers and catch button
-    echo "<div><form action='logincheck.php' id='home' method='post'>";
+    echo "<div class = 'center'><form action='logincheck.php' id='home' method='post'>";
 
 echo "<div><input type='text' id='username' name='username' placeholder='username'></div>";
 
