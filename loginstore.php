@@ -3,6 +3,9 @@
 <?php
 session_start();
 require 'config.php';
+if(!isset($_SESSION["valid"])){
+  header('Location:signin.php');
+}
 if(empty($_POST['usernamemake'])){
   echo "empty username";
   exit;

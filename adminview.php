@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION["adminvalid"])){
-  header('Location:https://atdpsites.berkeley.edu/skshastri/AIC/p2/signin.php');
+  header('Location:signin.php');
 }
 echo"Admin";
 echo "<br>";

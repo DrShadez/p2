@@ -5,7 +5,9 @@ session_start();
 $sessionid = $_SESSION["seshid"];
 
 require 'config.php';
-
+if(!isset($_SESSION["valid"])){
+  header('Location:signin.php');
+}
 
 
 if(empty($_POST['username'])){

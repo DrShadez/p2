@@ -4,7 +4,7 @@
 session_start();
 require 'config.php';
 if(!isset($_SESSION["adminvalid"])){
-  header('Location:https://atdpsites.berkeley.edu/skshastri/AIC/p2/signin.php');
+  header('Location:signin.php');
 }
 if(isset($_SESSION["sessionid"])){
 

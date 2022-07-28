@@ -1,7 +1,11 @@
 <?php
 session_start();
 
+if(!isset($_SESSION["valid"])){
+  header('Location:signin.php');
+}
+
 session_destroy();
 
-header('Location:https://atdpsites.berkeley.edu/skshastri/AIC/p2/home.php');
+header('Location:home.php');
 ?>
