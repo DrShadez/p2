@@ -19,7 +19,7 @@
 <a class = 'button' href='signin.php'>log in </a>
 <a class = 'button' href='signup.php'>sign up </a> -->
 <div class = 'title'> Welcome to BUSH LAND </div>
-
+<!--main buttons-->
 <a class = 'button' href='signin.php'>log in </a>
 <a class = 'button' href='signup.php'>sign up </a>
 <a class = 'button' href='catalogue.php'>catalogue </a>
