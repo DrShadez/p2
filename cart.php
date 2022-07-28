@@ -23,13 +23,11 @@ if (empty($_POST['sphere'])) {
 }
 else {
   $sth = $dbh -> prepare(
-  "INSERT INTO `current_order`
+  "INSERT INTO current_order
   (`design`, `img`)
 
   VALUES('sphere', 'linglong.jpg')");
   $sth -> execute();
-  $asdf = $sth -> fetchAll();
-  echo "yes";
 
 }
 $spiral = $_POST['spiral'];
@@ -67,7 +65,7 @@ else {
   "INSERT INTO `current_order`
   (`design`, `img`)
 
-  VALUES('maze', 'mazebsuh.jpg')");
+  VALUES('elephant', 'theelephants.jpg')");
   $sth -> execute();
 }
   $heart = $_POST['heart'];
@@ -75,6 +73,12 @@ if (empty($_POST['heart'])) {
 
 }
 else {
+  $sth = $dbh -> prepare(
+  "INSERT INTO `current_order`
+  (`design`, `img`)
+
+  VALUES('heart', 'heart.jpg')");
+  $sth -> execute();
 
 }
   $tall = $_POST['tall'];
@@ -82,6 +86,12 @@ if (empty($_POST['tall'])) {
 
 }
 else {
+  $sth = $dbh -> prepare(
+  "INSERT INTO `current_order`
+  (`design`, `img`)
+
+  VALUES('tall', 'long.jpg')");
+  $sth -> execute();
 
 }
 try {
