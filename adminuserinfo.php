@@ -1,42 +1,27 @@
-<body>
+<html>
+<head>
+</head>
+<body class = 'haha'>
+<ul class="nav">
+  <li><a href="home.php">Home </a></li>
+  <li><a href="catalogue.php">Cuts</a></li>
+  <li><a href="contact.php">Contact</a></li>
+  <li><a href="about.php">About</a></li>
+  <li class="logoish"><a  href="home.php">TheCuts</a></li>
+</ul>
 
 <?php
 session_start();
-require 'config.php';
-
-
-try {
-
-  //dbh configuration
-    $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
-
-  $sth = $dbh->prepare("SELECT * FROM user_info");
-  $sth->execute();
-  $displayinfo=$sth->fetchAll();
-  $divid=1;
-
-  echo "<form action='updateuser.php' id='update' method='POST'>";
-  echo "<select id='updateindividual' name='updateindividual'>";
-
-  foreach($displayinfo as $info){
-      if($info['username']=='admin'){
-
-      }
-      else{
-          echo "<option value='{$divid}'>{$info['username']}  . {$info['is_admin']}</option>";
-          $divid+=1;
-      }
-
-  };
-echo "</select>";
-echo "<input type='submit' value='delete '>";
-
-echo "</form>";
+if(!isset($_SESSION["adminvalid"])){
+  header('Location:https://atdpsites.berkeley.edu/skshastri/AIC/p2/signin.php');
 }
-catch (PDOException $e) {
-    echo "<p>Error connecting to database!</p>";
-}
+echo"Admin";
+echo "<br>";
+echo "<a href='adminuserinfo.php'>user info</a>";
+echo "<br>";
+echo "<a href='logout.php'>logout</a>";
 
 ?>
 
 </body>
+</html>
