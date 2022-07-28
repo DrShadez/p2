@@ -23,10 +23,12 @@ if (empty($_POST['sphere'])) {
 }
 else {
   $sth = $dbh -> prepare(
-  "INSERT INTO current_order
-  (`design`, `img`)
 
-  VALUES('sphere', 'linglong.jpg')");
+  "INSERT INTO current_order
+  (`design`, `img`, `user`)
+
+  VALUES('sphere', 'linglong.jpg', :user)");
+  $sth->bindValue(":user", $_SESSION["user"]);
   $sth -> execute();
 
 }
@@ -37,9 +39,11 @@ if (empty($_POST['spiral'])) {
 else {
   $sth = $dbh -> prepare(
   "INSERT INTO current_order
-  (`design`, `img`)
+  (`design`, `img`, `user`)
 
-  VALUES('spiral', 'watersa.jpg')");
+  VALUES('spiral', 'watersa.jpg', :user)");
+  $sth->bindValue(":user", $_SESSION["user"]);
+
   $sth -> execute();
 }
 
@@ -51,9 +55,10 @@ else {
 
   $sth = $dbh -> prepare(
   "INSERT INTO `current_order`
-  (`design`, `img`)
+  (`design`, `img`, `user`)
 
-  VALUES('maze', 'mazebsuh.jpg')");
+  VALUES('maze', 'mazebsuh.jpg', :user)");
+  $sth->bindValue(":user", $_SESSION["user"]);
   $sth -> execute();
 }
   $elephant = $_POST['elephant'];
@@ -63,9 +68,10 @@ if (empty($_POST['elephant'])) {
 else {
   $sth = $dbh -> prepare(
   "INSERT INTO `current_order`
-  (`design`, `img`)
+  (`design`, `img`, `user`)
 
-  VALUES('elephant', 'theelephants.jpg')");
+  VALUES('elephant', 'theelephants.jpg', :user)");
+  $sth->bindValue(":user", $_SESSION["user"]);
   $sth -> execute();
 }
   $heart = $_POST['heart'];
@@ -75,9 +81,10 @@ if (empty($_POST['heart'])) {
 else {
   $sth = $dbh -> prepare(
   "INSERT INTO `current_order`
-  (`design`, `img`)
+  (`design`, `img`, `user`)
 
-  VALUES('heart', 'heart.jpg')");
+  VALUES('heart', 'heart.jpg', :user)");
+  $sth->bindValue(":user", $_SESSION["user"]);
   $sth -> execute();
 
 }
@@ -88,15 +95,17 @@ if (empty($_POST['tall'])) {
 else {
   $sth = $dbh -> prepare(
   "INSERT INTO `current_order`
-  (`design`, `img`)
+  (`design`, `img`, `user`)
 
-  VALUES('tall', 'long.jpg')");
+  VALUES('tall', 'long.jpg', :user)");
+  $sth->bindValue(":user", $_SESSION["user"]);
   $sth -> execute();
 
 }
 try {
   $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
-  $sth = $dbh -> prepare('SELECT * FROM `current_order`');
+  $sth = $dbh -> prepare('SELECT * FROM `current_order` WHERE `user`=:sessionid');
+  $sth->bindValue(":sessionid", $_SESSION["user"]);
   $sth -> execute();
   $orders = $sth -> fetchAll();
 }
