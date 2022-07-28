@@ -1,3 +1,4 @@
+//font config
 @font-face {
   font-family: lemon;
   src: url(Lemon_Days.otf);
@@ -6,6 +7,8 @@
 .welcome{
   color:darkgreen;
 }
+
+//parallax css
 .parallax1 {
   /* The image used */
   background-image: url("nature.jpg");
@@ -21,6 +24,7 @@
 
 
 }
+//m
 .choices{
     display: inline-flex;
 }
@@ -178,7 +182,7 @@ table {
 .center {
   text-align: center;
 }
-
+/*for signup username*/
 #usernamemake {
   width: 80%;
   padding: 12px 20px;
@@ -187,6 +191,7 @@ table {
   box-sizing: border-box;
 }
 
+/*for signup password*/
 #passmake {
   width: 80%;
   padding: 12px 20px;
@@ -194,7 +199,7 @@ table {
   border: 2px black;
   box-sizing: border-box;
 }
-
+/*for signup confirm password*/
 #confirmpass {
   width: 80%;
   padding: 12px 20px;
@@ -216,6 +221,7 @@ table {
   width: 1000px;
   height: 700px;
 }
+/*css for sizes*/
 .size {
   font-size: 25px;
   text-align: center;
