@@ -120,7 +120,11 @@ li a {
   padding: 14px 16px;
   text-decoration: none;
 }
-
+h3{
+  margin: 0;
+  padding: 0;
+  
+}
 li a:hover:not(.current) {
   background-color: rgba(0, 0, 0, 0.5);
 }
