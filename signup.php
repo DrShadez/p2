@@ -1,4 +1,22 @@
-<body>
+<html>
+<head>    <link rel="stylesheet" href="p2.css">
+
+</head>
+<body class = 'haha2'>
+
+
+
+<ul class="nav">
+  <li><a href="home.php">Home </a></li>
+  <li><a href="catalogue.php">Cuts</a></li>
+  <li><a href="#">Contact</a></li>
+  <li><a href="#">About</a></li>
+  <li class="logoish"><a  href="home.php">TheCuts</a></li>
+</ul>
+
+<p> Explore our variety of bushes </p>
+<table><tr><td>
+<h1> Sign up </h1>
 
 <?php
 session_start();
@@ -16,16 +34,16 @@ try {
 
     echo "<form action='loginstore.php' id='home' method='post'>";
 
-echo "<input type='text' id='usernamemake' name='usernamemake' placeholder='Create username'>";
+echo "<div><input type='text' id='usernamemake' name='usernamemake' placeholder='Create username'></div>";
 
-echo "<input type='password' id='passmake' name='passmake' placeholder='Create password'>";
+echo "<div><input type='password' id='passmake' name='passmake' placeholder='Create password'></div>";
 
-echo "<input type='password' id='confirmpass' name='confirmpass' placeholder='Retype password'>";
+echo "<div><input type='password' id='confirmpass' name='confirmpass' placeholder='Retype password'></div>";
 
-echo "<input type='submit' value='signup'>";
+echo "<div><input type='submit' class ='sub' value='signup'></div>";
   echo "</form>";
 
-echo"<p> Already have an account? Click Here: <a href = 'signin.php' class = 'button'>Sign In </a>";
+
 
 
 }
@@ -34,5 +52,7 @@ catch (PDOException $e) {
 }
 
 ?>
-
+</td></tr></table>
+<p class = 'center'> Already have an account? Click Here: <a href = 'signin.php' class = 'button'>Sign In </a> </p>
 </body>
+</html>
