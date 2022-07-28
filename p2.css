@@ -4,12 +4,6 @@
   font-family: hairyBeard;
   src: url(css/Hairy_Beard.otf);
 }
-
-body {
-  font-family: hairyBeard;
-}
-
-
 .parallax1 {
   /* The image used */
   background-image: url("dingbnong.jpg");
@@ -25,12 +19,36 @@ body {
 
 
 }
+.choices{
+    display: inline-flex;
+}
+.optionl{
+  height: 350px;
+  width: 300px;
+  background-color: white;
+  display: flex;
+
+  margin: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+#content{
+  width: 300px;
+  text-align: center;
+
+}
+.optionhover{
+  flex-grow: 10%;
+}
 .haha{
 height:500px;
 background-color:green;
 font-size:36px;
 text-align: center;
-
+}
+#cataloghead{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:38px;
 }
 
 .parallax2{
@@ -58,7 +76,52 @@ text-align: center;
 
 .title {
   font-weight: 600;
-  font-family: hairybeard;
+  font-family: serif;
   font-size: 60px;
   color: #00FF19;
 }
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0px;
+}
+h2{
+  margin: inherit;
+}
+.nav {
+  margin: none;
+  padding: none;
+  border: none;
+  width: 100%;
+  float: left;
+}
+ul {
+  list-style-type: none;
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  background-image: url('navback.jpg');
+}
+.logoish{
+  float: right;
+  padding-right: 8px;
+}
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.current) {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.current {
+  background-color: rgba(0, 225, 0, 0.5);
+}
+
