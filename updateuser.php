@@ -1,10 +1,12 @@
 
 <?php
+//acceessing session info
 session_start();
 require 'config.php';
 
+//if user isn't an admin, redirect to signin.php
 if(!isset($_SESSION["adminvalid"])){
-  header('Location:https://atdpsites.berkeley.edu/skshastri/AIC/p2/signin.php');
+  header('Location:signin.php');
 }
 try {
     $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
@@ -12,6 +14,7 @@ try {
 
 
 
+ //if the delete form is submitted, execute the delete query
 if(isset(htmlspecialchars($_POST['deletebtn']))){
   $sth = $dbh->prepare("SELECT * FROM user_info ");
   $sth->execute();
@@ -29,6 +32,8 @@ if(isset(htmlspecialchars($_POST['deletebtn']))){
 $usernameid=htmlspecialchars($_POST['renameindividual']);
 $newusername=htmlspecialchars($_POST['renamevalue']);
 
+  
+   //if the rename form is submitted, execute the rename query
 if (isset(htmlspecialchars($_POST["renameindividual"]))) {
 $sth2=$dbh->prepare("UPDATE user_info SET username=:name WHERE id=:id");
   $sth2->bindValue(":name",$newusername );
@@ -38,9 +43,12 @@ $sth2=$dbh->prepare("UPDATE user_info SET username=:name WHERE id=:id");
 }
 }
 
+  //when adding a new password, hash the newpass and store the new username
 $newpass=password_hash(htmlspecialchars($_POST['addpassvalue']),PASSWORD_DEFAULT);
 $newusername=htmlspecialchars($_POST['adduservalue']);
 $is_admin=0;
+  
+  //if the add form is submitted, execute the add query
 if (isset(htmlspecialchars($_POST["addbtn"]))) {
 $sth4=$dbh->prepare("INSERT INTO user_info (is_admin, passhash, username) VALUES (:is_admin,:passhash,:username)");
   $sth4->bindValue(":is_admin",$is_admin );
