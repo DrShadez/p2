@@ -74,7 +74,7 @@ try {
 
         $sth2->execute();
         $storeinfo=$sth2->fetchAll();
-        header('location:signin.php');
+        header('location:catalogue.php');
       }
 
 

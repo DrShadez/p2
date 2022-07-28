@@ -5,9 +5,7 @@ session_start();
 $sessionid = $_SESSION["seshid"];
 
 require 'config.php';
-if(!isset($_SESSION["valid"])){
-  header('Location:signin.php');
-}
+
 
 
 if(empty($_POST['username'])){
@@ -19,7 +17,7 @@ elseif(empty($_POST['pass'])){
   echo "empty password";
   exit;
 }
-var_dump($_POST);
+
 try {
   //dbh configuration
     $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
