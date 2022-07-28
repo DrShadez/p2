@@ -5,7 +5,7 @@
 <body class = 'haha2'>
 
 
-
+<!--navbar config-->
 <ul class="nav">
   <li><a href="home.php">Home </a></li>
   <li><a href="catalogue.php">Cuts</a></li>
@@ -18,6 +18,7 @@
 <table><tr><td>
 <h1 class="center"> Sign In </h1>
 <?php
+  //accessing session info
 session_start();
 require 'config.php';
 
@@ -25,13 +26,14 @@ try {
   //dbh configuration
     $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
 
-//seperate query for getting info from player table
+//seperate query for getting info from user_info table
   $sth1 = $dbh->prepare("SELECT * FROM user_info");
 
     $sth1->execute();
     $userinfo = $sth1->fetchAll();
 
-  //form for first dropdown containing all trainers and catch button
+  
+  //form for username and password textboxes
     echo "<div class = 'center'><form action='logincheck.php' id='home' method='post'>";
 
 echo "<div><input type='text' id='username' name='username' placeholder='username' required></div>";
