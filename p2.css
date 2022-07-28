@@ -1,12 +1,10 @@
-
-
 @font-face {
   font-family: lemon;
   src: url(lemon.otf);
 }
 .parallax1 {
   /* The image used */
-  background-image: url("nature.jpg");
+  background-image: url("dingbnong.jpg");
 
   /* Set a specific height */
   min-height: 500px;
@@ -53,7 +51,7 @@ text-align: center;
 
 .parallax2{
     /* The image used */
-    background-image: url("nature.jpg");
+    background-image: url("images.jpeg");
 
     /* Set a specific height */
     min-height: 500px;
@@ -69,16 +67,16 @@ text-align: center;
 .button {
   text-decoration: none;
   color: #2F3930;
-  padding: 5px 9px 5px 9px;
+  padding: 2px 6px 2px 6px;
   border: 1px solid #282F29;
   background: #A8F3AF;
 }
 
 .title {
   font-weight: 600;
-  font-family: inherit;
-  font-size: 40px;
-  color: #227C2F;
+  font-family: serif;
+  font-size: 60px;
+  color: #00FF19;
 }
 body {
   font-family: lemon;
@@ -146,7 +144,6 @@ table {
   background-color: #CCFCD3;
   margin-left: auto;
   margin-right: auto;
-  width: 600px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
@@ -154,8 +151,7 @@ table {
 .sub {
   	background: #3E8148;
   	padding: 10px 30px;
-  	margin-left: auto;
-    margin-right: auto;
+  	margin: 0;
   	font-family: lemon;
   	font-size: inherit;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -194,22 +190,4 @@ table {
   margin: 10px 0;
   border: 2px black;
   box-sizing: border-box;
-}
-
-.center2 {
-  margin-left: auto;
-  margin-right: auto;
-  width: 19%;
-  height: 70%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-}
-
-.contact {
-  width: 1000px;
-  height: 700px;
-}
-.size {
-  font-size: 25px;
-  text-align: center;
 }

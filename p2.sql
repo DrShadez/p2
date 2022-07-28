@@ -38,6 +38,8 @@ CREATE TABLE IF NOT EXISTS `current_order`(
 );
 
 
+
+
 CREATE TABLE IF NOT EXISTS `pastorders` (
   `id` in NOT NULL AUTO_INCREMENT,
   `username` varchar(12),

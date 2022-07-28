@@ -1,22 +1,5 @@
-<html>
-<head>    <link rel="stylesheet" href="p2.css">
+<body>
 
-</head>
-<body class = 'haha2'>
-
-
-
-<ul class="nav">
-  <li><a href="home.php">Home </a></li>
-  <li><a href="catalogue.php">Cuts</a></li>
-  <li><a href="contact.php">Contact</a></li>
-  <li><a href="about.php">About</a></li>
-  <li class="logoish"><a  href="home.php">TheCuts</a></li>
-</ul>
-
-<p class = 'center'> Sign In to view our catalogue </p>
-<table><tr><td>
-<h1 class="center"> Sign In </h1>
 <?php
 session_start();
 require 'config.php';
@@ -32,14 +15,14 @@ try {
     $userinfo = $sth1->fetchAll();
 
   //form for first dropdown containing all trainers and catch button
-    echo "<div class = 'center'><form action='logincheck.php' id='home' method='post'>";
+    echo "<form action='logincheck.php' id='home' method='post'>";
 
-echo "<div><input type='text' id='username' name='username' placeholder='username'></div>";
+echo "<input type='text' id='username' name='username' placeholder='username' required>";
 
-echo "<div><input type='password' id='pass' name='pass' placeholder='password'></div>";
+echo "<input type='password' id='pass' name='pass' placeholder='password' required>";
 
-echo "<div><input type='submit' class = 'sub' value='login'></div>";
-  echo "</form><div>";
+echo "<input type='submit' value='login'>";
+  echo "</form>";
 
 
 
@@ -50,8 +33,5 @@ catch (PDOException $e) {
 }
 
 ?>
-</td></tr></table>
-<p class = 'center'>Don't have an account? Click Here: <a href = 'signup.php' class = 'button'> SIGN UP </a></p>
 
 </body>
-</html>

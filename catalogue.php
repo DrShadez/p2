@@ -3,7 +3,7 @@
 session_start();
 require 'config.php';
 if(!isset($_SESSION["valid"])){
-  header('Location:https://atdpsites.berkeley.edu/rmaji/p2/signin.php');
+  header('Location:https://atdpsites.berkeley.edu/skshastri/AIC/p2/signin.php');
 }
 try {
   $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
