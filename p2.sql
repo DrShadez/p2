@@ -29,8 +29,17 @@ VALUES
 
 CREATE TABLE IF NOT EXISTS `current_order`(
     `id` int NOT NULL AUTO_INCREMENT,
+    `username` varchar(12),
     `design` varchar(64),
     `img` varchar(255),
     PRIMARY KEY (`id`)
 
+);
+
+
+CREATE TABLE IF NOT EXISTS `pastorders` (
+  `id` in NOT NULL AUTO_INCREMENT,
+  `username` varchar(12),
+  `bushes_design` varchar(64),
+  PRIMARY KEY (`id`)
 );
