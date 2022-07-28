@@ -3,7 +3,7 @@
 session_start();
 require 'config.php';
 if(!isset($_SESSION["valid"])){
-  header('Location:https://atdpsites.berkeley.edu/rmaji/p2/signin.php');
+  header('Location:signin');
 }
 try {
   $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
@@ -26,6 +26,10 @@ else {
   "INSERT INTO current_order
   (`design`, `img`, `user`, `cost`)
 
+  VALUES('sphere', 'linglong.jpg', :user, :cost );
+  INSERT INTO `pastorders`
+    (`design`, `img`, `user`, `cost`)
+
   VALUES('sphere', 'linglong.jpg', :user, :cost )");
   $sth->bindValue(":user", $_SESSION["user"]);
   $sth->bindValue(":cost", $sphere);
@@ -40,6 +44,10 @@ else {
   $sth = $dbh -> prepare(
   "INSERT INTO current_order
   (`design`, `img`, `user`, `cost`)
+
+  VALUES('spiral', 'watersa.jpg', :user, :cost );
+  INSERT INTO `pastorders`
+    (`design`, `img`, `user`, `cost`)
 
   VALUES('spiral', 'watersa.jpg', :user, :cost )");
   $sth->bindValue(":user", $_SESSION["user"]);
@@ -58,6 +66,10 @@ else {
   "INSERT INTO `current_order`
   (`design`, `img`, `user`, `cost`)
 
+  VALUES('maze', 'mazebsuh.jpg', :user, :cost );
+  INSERT INTO `pastorders`
+    (`design`, `img`, `user`, `cost`)
+
   VALUES('maze', 'mazebsuh.jpg', :user, :cost )");
   $sth->bindValue(":user", $_SESSION["user"]);
     $sth->bindValue(":cost", $maze);
@@ -71,6 +83,10 @@ else {
   $sth = $dbh -> prepare(
   "INSERT INTO `current_order`
   (`design`, `img`, `user`, `cost`)
+
+  VALUES('elephant', 'theelephants.jpg', :user, :cost );
+  INSERT INTO `pastorders`
+    (`design`, `img`, `user`, `cost`)
 
   VALUES('elephant', 'theelephants.jpg', :user, :cost )");
   $sth->bindValue(":user", $_SESSION["user"]);
@@ -86,6 +102,10 @@ else {
   "INSERT INTO `current_order`
   (`design`, `img`, `user`, `cost`)
 
+  VALUES('heart', 'heart.jpg', :user, :cost );
+  INSERT INTO `pastorders`
+    (`design`, `img`, `user`, `cost`)
+
   VALUES('heart', 'heart.jpg', :user, :cost )");
   $sth->bindValue(":user", $_SESSION["user"]);
   $sth->bindValue(":cost", $heart);
@@ -99,6 +119,10 @@ if (empty($_POST['tall'])) {
 else {
   $sth = $dbh -> prepare(
   "INSERT INTO `current_order`
+    (`design`, `img`, `user`, `cost`)
+
+  VALUES('tall', 'long.jpg', :user, :cost );
+  INSERT INTO `pastorders`
     (`design`, `img`, `user`, `cost`)
 
   VALUES('tall', 'long.jpg', :user, :cost )");
@@ -125,12 +149,11 @@ catch (PDOException $e){
 </head>
 <body>
   <ul class="nav">
- <li><a href="home.php">Home </a></li>
-  <li><a href="catalogue.php">Cuts</a></li>
-  <li><a href="cart.php">Cart</a></li>
-  <li><a href="contact.php">Contact</a></li>
-  <li><a href="about.php">About</a></li>
-      <li class="logoish"><a  href="home.php">TheCuts</a></li>
+    <li><a href="home.php">Home </a></li>
+    <li><a class="current" href="catalogue.php">Cuts</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">About</a></li>
+    <li class="logoish"><a  href="home.php">TheCuts</a></li>
   </ul>
 
   <h3>You ordered...</h3>
@@ -149,6 +172,7 @@ catch (PDOException $e){
   ?>
   <form action='dropem.php' id='drops' method='POST'>
     <input type='submit' name='buy' id='buy' value='BUY'>
+    <a  href="pastorders.php">Previous Orders</a>
     <a  href="catalogue.php">Back?</a>
 
   </form>
