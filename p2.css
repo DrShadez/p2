@@ -1,8 +1,7 @@
 
-
 @font-face {
-  font-family: hairyBeard;
-  src: url(css/Hairy_Beard.otf);
+  font-family: lemon;
+  src: url(lemon.otf);
 }
 .parallax1 {
   /* The image used */
@@ -42,12 +41,12 @@
 }
 .haha{
 height:500px;
-background-color:green;
-font-size:36px;
+background-color:#70E881;
+font-family: lemon;
 text-align: center;
 }
 #cataloghead{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: lemon;
     font-size:38px;
 }
 
@@ -81,7 +80,7 @@ text-align: center;
   color: #00FF19;
 }
 body {
-  font-family: "Lato", sans-serif;
+  font-family: lemon;
   margin: 0px;
 }
 h2{
@@ -104,6 +103,7 @@ ul {
 .logoish{
   float: right;
   padding-right: 8px;
+  font-family: lemon;
 }
 li {
   float: left;
@@ -125,3 +125,70 @@ li a:hover:not(.current) {
   background-color: rgba(0, 225, 0, 0.5);
 }
 
+#username {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 10px 0;
+  border: 2px black;
+  box-sizing: border-box;
+}
+
+#pass {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 10px 0;
+  border: 2px black;
+  box-sizing: border-box;
+}
+
+table {
+  background-color: #CCFCD3;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.sub {
+  	background: #3E8148;
+  	padding: 10px 30px;
+  	margin: 0;
+  	font-family: lemon;
+  	font-size: inherit;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.haha2 {
+  height:500px;
+  background-color:#70E881;
+  font-family: lemon;
+}
+
+.center {
+  text-align: center;
+}
+
+#usernamemake {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 10px 0;
+  border: 2px black;
+  box-sizing: border-box;
+}
+
+#passmake {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 10px 0;
+  border: 2px black;
+  box-sizing: border-box;
+}
+
+#confirmpass {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 10px 0;
+  border: 2px black;
+  box-sizing: border-box;
+}
