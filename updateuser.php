@@ -15,7 +15,7 @@ try {
 
 
  //if the delete form is submitted, execute the delete query
-if(isset(htmlspecialchars($_POST['deletebtn']))){
+if(isset($_POST['deletebtn'])){
   $sth = $dbh->prepare("SELECT * FROM user_info ");
   $sth->execute();
   $information = $sth->fetchAll(); //an array of arrays
@@ -34,7 +34,7 @@ $newusername=htmlspecialchars($_POST['renamevalue']);
 
   
    //if the rename form is submitted, execute the rename query
-if (isset(htmlspecialchars($_POST["renameindividual"]))) {
+if (isset($_POST["renameindividual"])) {
 $sth2=$dbh->prepare("UPDATE user_info SET username=:name WHERE id=:id");
   $sth2->bindValue(":name",$newusername );
   $sth2->bindValue(":id", "$usernameid");
@@ -49,7 +49,7 @@ $newusername=htmlspecialchars($_POST['adduservalue']);
 $is_admin=0;
   
   //if the add form is submitted, execute the add query
-if (isset(htmlspecialchars($_POST["addbtn"]))) {
+if (isset($_POST["addbtn"])) {
 $sth4=$dbh->prepare("INSERT INTO user_info (is_admin, passhash, username) VALUES (:is_admin,:passhash,:username)");
   $sth4->bindValue(":is_admin",$is_admin );
   $sth4->bindValue(":passhash",$newpass );
